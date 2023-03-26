@@ -20,11 +20,6 @@ return {
     },
 
     {
-        "mg979/vim-visual-multi",
-        event = "BufAdd",
-    },
-
-    {
         "toppair/peek.nvim",
         priority = 10,
         build = "deno task --quiet build:fast",

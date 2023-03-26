@@ -350,6 +350,7 @@ return {
 
     {
         "luukvbaal/statuscol.nvim",
+        Lazy = true,
         event = "BufReadPost",
         config = function()
             local builtin = require("statuscol.builtin")

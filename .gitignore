@@ -63,3 +63,5 @@ compile_flags.txt
 # Shader
 *.*.bin
 
+# Lazy
+lazy-lock.json

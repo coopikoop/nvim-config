@@ -18,7 +18,7 @@ require("lazy").setup({
         -- version = false, -- always use the latest git commit
         version = "*", -- try installing the latest stable version for plugins that support semver
     },
-    install = { colorscheme = { "monokai-pro", "gruvbox-material" } },
+    install = { colorscheme = { "monokai-pro" } },
     checker = { enabled = false, notify = true, frequency = 3600 },
     change_detection = {
         -- automatically check for config file changes and reload the ui
