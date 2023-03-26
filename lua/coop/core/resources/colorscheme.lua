@@ -1,13 +1,13 @@
 return {
     {
-        "coopikoop/monokai-pro.nvim",
+        "coopikoop/themes.nvim",
         lazy = false,
         branch = "master",
         priority = 1000,
-        keys = { { "<leader>c", "<cmd>MonokaiProSelect<cr>", desc = "Select Moonokai pro filter" } },
+        keys = { { "<leader>c", "<cmd>ThemeSelect<cr>", desc = "Select theme" } },
         config = function()
-            local monokai = require("monokai-pro")
-            monokai.setup({
+            local theme = require("themes")
+            theme.setup({
                 transparent_background = false,
                 devicons = true,
                 filter = "gruvbox", -- classic | octagon | pro | machine | ristretto | spectrum | gruvbox
@@ -42,7 +42,7 @@ return {
                     }
                 end,
             })
-            monokai.load()
+            theme.load()
         end,
     },
 }
