@@ -170,6 +170,7 @@ return {
                 ["<leader>h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
                 ["<leader><Tab>"] = { "<c-6>", "Navigate previous buffer" },
                 ["<leader>g"] = { name = "+Git" },
+                ["<leader>G"] = { name = "+Gitsigns" },
                 ["<leader>l"] = { name = "+VimTeX" },
                 ["<leader>L"] = { name = "+LSP" },
                 ["<leader>s"] = { name = "+Session" },
