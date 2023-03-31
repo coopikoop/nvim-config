@@ -168,6 +168,7 @@ return {
                 ["<leader>q"] = { "<cmd>q<CR>", "Quit" },
                 ["<leader>Q"] = { "<cmd>qa<CR>", "Quit All" },
                 ["<leader>h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+                ["<leader>v"] = { "<cmd>Veil<CR>", "Veil Dashboard" },
                 ["<leader><Tab>"] = { "<c-6>", "Navigate previous buffer" },
                 ["<leader>g"] = { name = "+Git" },
                 ["<leader>G"] = { name = "+Gitsigns" },
@@ -349,6 +350,7 @@ return {
         },
     },
 
+    -- TODO: fix error that happens sometimes
     {
         "luukvbaal/statuscol.nvim",
         Lazy = true,

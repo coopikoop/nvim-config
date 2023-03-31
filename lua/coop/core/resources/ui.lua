@@ -220,77 +220,18 @@ return {
     },
 
     {
-        "glepnir/dashboard-nvim",
-        event = "VimEnter",
-        dependencies = { { "nvim-tree/nvim-web-devicons" } },
-        keys = { { "<leader>0", "<cmd>Dashboard<CR>", desc = "Dashboard" } },
-        config = function()
-            require("coop.config.dashboard")
-        end,
-    },
-
---[[
-    {
         "willothy/veil.nvim",
-        config = true,
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-file-browser.nvim"
+        },
         lazy = false,
         event = "VimEnter",
-        --[[
         opts = function()
-            local builtin = require("veil.builtin")
-
-            local opts = {
-                sections = {
-		            builtin.sections.animated(builtin.headers.frames_nvim, {
-		            	hl = { fg = "#5de4c7" },
-		            }),
-		            builtin.sections.padding(2),
-		            builtin.sections.buttons({
-		            	{
-		            		icon = "",
-		            		text = "Find Files",
-		            		shortcut = "f",
-		            		callback = function()
-		            			require("telescope.builtin").find_files()
-		            		end,
-		            	},
-		            	{
-		            		icon = "",
-		            		text = "Find Word",
-		            		shortcut = "w",
-		            		callback = function()
-		            			require("telescope.builtin").live_grep()
-		            		end,
-		            	},
-		            	{
-		            		icon = "",
-		            		text = "Buffers",
-		            		shortcut = "b",
-		            		callback = function()
-		            			require("telescope.builtin").buffers()
-		            		end,
-		            	},
-		            	{
-		            		icon = "",
-		            		text = "Config",
-		            		shortcut = "c",
-		            		callback = function()
-		            			require("telescope").extensions.file_browser.file_browser({
-		            				path = vim.fn.stdpath("config"),
-		            			})
-		            		end,
-		            	},
-		            }),
-		            builtin.sections.padding(3),
-	            },
-	            mappings = {},
-	            startup = true,
-            }
-
-            return opts
+            return require("coop.config.veil.veil")
         end,
     },
---]]
 
     {
         "nvim-tree/nvim-web-devicons",
