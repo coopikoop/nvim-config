@@ -9,10 +9,5 @@ return {
         "MunifTanjim/nui.nvim",
         lazy = true,
     },
-
-    {
-        "dstein64/vim-startuptime",
-        cmd = "StartupTime",
-    },
 }
 

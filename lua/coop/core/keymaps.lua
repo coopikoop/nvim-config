@@ -83,15 +83,3 @@ keymap("n", "<leader>/", ":split<CR>", opts)
 -------------------- Switch two windows ------------------------
 keymap("n", "<A-o>", "<C-w>r", opts)
 
--------------------- Compile --------------------------------
-keymap("n", "<c-m-n>", "<cmd>only | Compile<CR>", opts)
-
--------------------- Inspect --------------------------------
-keymap("n", "<F2>", "<cmd>Inspect<CR>", opts)
-
--------------------- Fuzzy Search --------------------------------
-vim.keymap.set("n", "<C-f>", function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes"))
-end, { desc = "[/] Fuzzily search in current buffer]" })
-
