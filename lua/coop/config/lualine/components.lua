@@ -108,6 +108,15 @@ M.mode = {
     end,
 }
 
+M.encoding = {
+    "encoding",
+    fmt = function(str)
+        local left_sep = hl_str(config.separator_icon.left, "SLSeparator", "SLPadding")
+        local right_sep = hl_str(config.separator_icon.right, "SLSeparator", "SLPadding")
+        return left_sep .. hl_str(str, "SLFiletype") .. right_sep
+    end,
+}
+
 local prev_filetype = ""
 M.filetype = {
     "filetype",

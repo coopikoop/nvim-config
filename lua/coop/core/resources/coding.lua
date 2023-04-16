@@ -11,6 +11,17 @@ return {
     },
 
     {
+        "github/copilot.vim",
+        lazy = false,
+        config = function()
+            vim.cmd([[
+                imap <silent><script><expr> <A-Tab> copilot#Accept("\<CR>")
+                let g:copilot_no_tab_map = v:true
+            ]])
+        end
+    },
+
+    {
         "hrsh7th/nvim-cmp",
         version = false,
         event = { "InsertEnter", "CmdlineEnter" },

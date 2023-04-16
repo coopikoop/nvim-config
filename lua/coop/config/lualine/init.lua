@@ -29,7 +29,7 @@ local function setup()
             lualine_b = { cpn.branch, cpn.diff, cpn.diagnostics },
             lualine_c = {},
             lualine_x = { cpn.position },
-            lualine_y = { cpn.filetype },
+            lualine_y = { cpn.filetype, cpn.encoding },
             lualine_z = { cpn.spaces },
         },
         inactive_sections = {
