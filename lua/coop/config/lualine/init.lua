@@ -26,8 +26,8 @@ local function setup()
         },
         sections = {
             lualine_a = { cpn.mode },
-            lualine_b = { cpn.branch, cpn.diff, cpn.diagnostics },
-            lualine_c = {},
+            lualine_b = { cpn.branch, cpn.diff },
+            lualine_c = { cpn.diagnostics },
             lualine_x = { cpn.position },
             lualine_y = { cpn.filetype, cpn.encoding },
             lualine_z = { cpn.spaces },

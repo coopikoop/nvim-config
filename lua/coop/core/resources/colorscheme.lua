@@ -45,5 +45,64 @@ return {
             theme.load()
         end,
     },
+
+    {
+        "ellisonleao/gruvbox.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            local gruvbox = require("gruvbox")
+            gruvbox.setup({
+                undercurl = true,
+                underline = true,
+                bold = true,
+                italic = {
+                    strings = true,
+                    comments = true,
+                    operators = false,
+                    folds = true,
+                },
+                strikethrough = true,
+                invert_selection = false,
+                invert_signs = false,
+                invert_tabline = false,
+                invert_intend_guides = false,
+                inverse = true, -- invert background for search, diffs, statuslines and errors
+                contrast = "hard", -- can be "hard", "soft" or empty string
+                palette_overrides = {},
+                overrides = {},
+                dim_inactive = false,
+                transparent_mode = false,
+            })
+        end,
+    },
+
+    {
+        "EdenEast/nightfox.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            local nightfox = require("nightfox")
+            nightfox.setup({
+                palettes = {
+                    -- Custom duskfox with black background
+                    carbonfox = {
+                        bg1 = "#000000", -- Black background
+                        bg0 = "#1d1d2b", -- Alt backgrounds (floats, statusline, ...)
+                        bg3 = "#121820", -- 55% darkened from stock
+                        sel0 = "#131b24", -- 55% darkened from stock
+                    },
+                },
+                specs = {
+                    all = {
+                        inactive = "bg0", -- Default value for other styles
+                    },
+                    carbonfox = {
+                        inactive = "#090909", -- Slightly lighter then black background
+                    },
+                },
+            })
+        end,
+    },
 }
 
