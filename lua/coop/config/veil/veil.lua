@@ -13,7 +13,7 @@ local opts = {
         }),
         builtin.sections.buttons({
             {
-                icon = "",
+                icon = "",
                 text = "Recent Files",
                 shortcut = "r",
                 callback = function()
@@ -21,7 +21,7 @@ local opts = {
                 end,
             },
             {
-                icon = "",
+                icon = "",
                 text = "Last Session",
                 shortcut = "s",
                 callback = function()
@@ -77,7 +77,7 @@ local opts = {
                 end,
             },
             {
-                icon = "",
+                icon = "",
                 text = "Quit Neovim",
                 shortcut = "q",
                 callback = function()

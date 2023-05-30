@@ -19,10 +19,10 @@ neotree.setup({
         content_layout = "center",
         tabs_layout = "equal",
         tab_labels = {
-            filesystem = "  ",
-            buffers = "  ",
-            git_status = "  ",
-            diagnostics = " 裂",
+            filesystem = "󰉓",
+            buffers = "󰈙",
+            git_status = "",
+            diagnostics = "󰒡",
         },
     },
     default_component_configs = {
@@ -49,11 +49,11 @@ neotree.setup({
             expander_highlight = "NeoTreeExpander",
         },
         icon = {
-            -- folder_closed = "",
+            -- folder_closed = "",
             -- folder_open = "",
             -- folder_closed = ">",
             -- folder_open = "",
-            folder_closed = "> ",
+            folder_closed = "> ",
             folder_open = " ",
             folder_empty = "",
             default = " ",

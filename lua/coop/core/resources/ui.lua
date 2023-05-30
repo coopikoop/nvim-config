@@ -1,3 +1,5 @@
+local Icon = require("coop.core.icons")
+
 return {
     {
         "rcarriga/nvim-notify",
@@ -11,6 +13,11 @@ return {
             },
         },
         opts = {
+            icons = {
+                ERROR = Icon.diagnostics.error .. " ",
+                INFO = Icon.diagnostics.info .. " ",
+                WARN = Icon.diagnostics.warn .. " ",
+            },
             timeout = 5000,
             max_height = function()
                 return math.floor(vim.o.lines * 0.75)
@@ -18,6 +25,7 @@ return {
             max_width = function()
                 return math.floor(vim.o.columns * 0.75)
             end,
+
         },
         init = function()
             require("coop.util").on_very_lazy(function()
@@ -167,35 +175,7 @@ return {
             include_buftypes = { "" },
             exclude_filetypes = { "gitcommit", "Trouble", "toggleterm" },
             show_modified = false,
-            kinds = {
-                File = "", -- File
-                Module = "", -- Module
-                Namespace = "", -- Namespace
-                Package = "", -- Package
-                Class = "", -- Class
-                Method = "", -- Method
-                Property = "", -- Property
-                Field = "", -- Field
-                Constructor = "", -- Constructor
-                Enum = "", -- Enum
-                Interface = "", -- Interface
-                Function = "", -- Function
-                Variable = "", -- Variable
-                Constant = "", -- Constant
-                String = "", -- String
-                Number = "", -- Number
-                Boolean = "◩", -- Boolean
-                Array = "", -- Array
-                Object = "", -- Object
-                Key = "", -- Key
-                Null = "ﳠ", -- Null
-                EnumMember = "", -- EnumMember
-                Struct = "", -- Struct
-                Event = "", -- Event
-                Operator = "", -- Operator
-                TypeParameter = "", -- TypeParameter
-                Macro = "", -- Macro
-            },
+            kinds = Icon.kinds,
         },
     },
 

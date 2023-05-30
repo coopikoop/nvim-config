@@ -1,3 +1,5 @@
+local Icon = require("coop.core.icons")
+
 return {
     {
         "loctvl842/neo-tree.nvim",
@@ -188,12 +190,12 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             signs = {
-                add = { text = "┃" },
-                change = { text = "┋" },
-                delete = { text = "契" },
-                topdelhfe = { text = "契" },
-                changedelete = { text = "┃" },
-                untracked = { text = "┃" },
+                add = { text = Icon.gitsigns.add },
+                change = { text = Icon.gitsigns.change },
+                delete = { text = Icon.gitsigns.delete },
+                topdelhfe = { text = Icon.gitsigns.topdelhfe },
+                changedelete = { text = Icon.gitsigns.changedelete },
+                untracked = { text = Icon.gitsigns.untracked },
             },
             current_line_blame = true,
             current_line_blame_opts = {
