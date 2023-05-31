@@ -95,7 +95,7 @@ return {
             lualine_config.load()
         end,
     },
-
+--[[
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
@@ -131,10 +131,10 @@ return {
             -- },
         },
     },
-
+--]]
     {
         "echasnovski/mini.indentscope",
-        lazy = true,
+        lazy = false,
         enabled = true,
         -- lazy = true,
         version = false, -- wait till new 0.7.0 release to put it back on semver

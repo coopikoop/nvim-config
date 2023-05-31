@@ -57,12 +57,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 -- fix tab in python
+--[[
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = { "*.cpp" },
     callback = function()
         vim.cmd("setlocal noexpandtab")
     end,
 })
+--]]
 
 -- fix comment
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {

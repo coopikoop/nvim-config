@@ -29,12 +29,6 @@ keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<A-S-l>", ":BufferLineMoveNext<CR>", opts)
 keymap("n", "<A-S-h>", ":BufferLineMovePrev<CR>", opts)
 
--------------------- Press jk fast to enter --------------------
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "Jk", "<ESC>", opts)
-keymap("i", "jK", "<ESC>", opts)
--- keymap("i", "JK", "<ESC>", opts)
-
 -------------------- Stay in indent mode ------------------------
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -59,8 +53,8 @@ keymap("x", "<A-S-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<A-S-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-S-k>", ":m .-2<CR>==", opts)
 -- Insert --
-keymap("i", "<A-S-j>", "<ESC>:m .+1<CR>==gi", opts)
-keymap("i", "<A-S-k>", "<ESC>:m .-2<CR>==gi", opts)
+--keymap("i", "<A-S-j>", "<ESC>:m .+1<CR>==gi", opts)
+--keymap("i", "<A-S-k>", "<ESC>:m .-2<CR>==gi", opts)
 
 -------------------- No highlight ------------------------------
 keymap("n", ";", ":noh<CR>", opts)

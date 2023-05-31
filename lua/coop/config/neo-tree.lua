@@ -74,14 +74,14 @@ neotree.setup({
                 added = icons.git.added, -- or "✚", but this is redundant info if you use git_status_colors on the name
                 modified = icons.git.modified, -- or "", but this is redundant info if you use git_status_colors on the name
                 deleted = icons.git.removed, -- this can only be used in the git_status source
-                renamed = "", -- this can only be used in the git_status source
+                renamed = icons.git.renamed, -- this can only be used in the git_status source
                 -- Status type
-                untracked = "",
-                ignored = "",
+                untracked = icons.git.untracked,
+                ignored = icons.git.ignored,
                 -- unstaged = "",
-                unstaged = "U",
-                staged = "",
-                conflict = "",
+                unstaged = icons.git.unstaged,
+                staged = icons.git.staged,
+                conflict = icons.git.conflict,
             },
         },
         diagnostics = {
@@ -149,15 +149,18 @@ neotree.setup({
         filtered_items = {
             visible = false, -- when true, they will just be displayed differently than normal items
             hide_dotfiles = false,
-            hide_gitignored = false,
+            hide_gitignored = true,
             hide_by_name = {
+                ".DS_Store",
                 --"node_modules"
             },
             hide_by_pattern = { -- uses glob style patterns
+                "*.o",
                 --"*.meta"
             },
             never_show = { -- remains hidden even if visible is toggled to true
                 ".DS_Store",
+                "*.o",
                 --"thumbs.db"
             },
         },
