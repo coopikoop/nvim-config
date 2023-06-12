@@ -12,6 +12,17 @@ au FileType c nnoremap <silent> ;tm :VimuxRunCommand "make build -j 10"<CR>
 au FileType c nnoremap <silent> ;tr :VimuxRunCommand "make run -j 10"<CR>
 au FileType c nnoremap <silent> ;tc :VimuxRunCommand "make clean && make run -j 10"<CR>
 
+au FileType cpp nnoremap <silent> ;m :Focus make build -j 10<CR>:Dispatch<CR>
+au FileType cpp nnoremap <silent> ;r :Focus make run -j 10<CR>:Dispatch<CR>
+au FileType cpp nnoremap <silent> ;cm :Focus make clean; make build -j 10<CR>:Dispatch<CR>
+au FileType cpp nnoremap <silent> ;cr :Focus make clean; make run -j 10<CR>:Dispatch<CR>
+au FileType cpp nnoremap <silent> ;d :VimuxRunCommand "lldb ./bin/game"<CR>
+au FileType cpp nnoremap <silent> ;dm :VimuxRunCommand "make build -j 10 && lldb ./bin/game"<CR>
+au FileType cpp nnoremap <silent> ;dc :VimuxRunCommand "make clean -j 10 && make build -j 10 && lldb ./bin/game"<CR>
+au FileType cpp nnoremap <silent> ;tm :VimuxRunCommand "make build -j 10"<CR>
+au FileType cpp nnoremap <silent> ;tr :VimuxRunCommand "make run -j 10"<CR>
+au FileType cpp nnoremap <silent> ;tc :VimuxRunCommand "make clean && make run -j 10"<CR>
+
 au FileType zig nnoremap <silent> ;m :make<CR>
 au FileType zig nnoremap <silent> ;r :make run<CR>
 
