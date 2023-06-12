@@ -63,7 +63,7 @@ return {
         Variable = " ",
     },
     ui = {
-        Pencil = "",
+        Pencil = "✎",
         Bug = "",
     },
 }
