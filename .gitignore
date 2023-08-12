@@ -65,3 +65,6 @@ compile_flags.txt
 
 # Lazy
 lazy-lock.json
+
+# packer
+packer_compiled.lua

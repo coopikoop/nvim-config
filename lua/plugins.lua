@@ -29,7 +29,7 @@ return require('packer').startup(function()
     use 'SirVer/ultisnips'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
     use 'zefei/vim-colortuner'
-    use { 'nvim-treesitter/nvim-treesitter', tag = 'v0.8.1' }
+    use 'nvim-treesitter/nvim-treesitter'
     use 'sbdchd/neoformat'
     use {
       'nvim-lualine/lualine.nvim',
@@ -45,4 +45,5 @@ return require('packer').startup(function()
     use 'tommcdo/vim-lion'
     use 'sindrets/diffview.nvim'
     use 'honza/vim-snippets'
+    use 'romainl/vim-cool'
 end)
