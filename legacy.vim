@@ -57,14 +57,14 @@ nnoremap <silent> ;cso :execute 's/\(' . expand('<cWORD>') . '\)/std::optional<\
 
 " function which copies .hpp/.cpp and auto-rename in buffers
 function! CPPCopy(path, newName, oldTypeName, newTypeName)
-    let l:basePath  = fnamemodify(a:path, ':h')
-    let l:baseName = split(fnamemodify(a:path, ':t'), '\.')[0]
-    let l:oldCppPath = join([l:basePath, "/", l:baseName, ".cpp"], "")
-    let l:oldHppPath = join([l:basePath, "/", l:baseName, ".hpp"], "")
-    let l:newCppPath = join([l:basePath, "/", a:newName, ".cpp"], "")
-    let l:newHppPath = join([l:basePath, "/", a:newName, ".hpp"], "")
+	let l:basePath  = fnamemodify(a:path, ':h')
+	let l:baseName = split(fnamemodify(a:path, ':t'), '\.')[0]
+	let l:oldCppPath = join([l:basePath, "/", l:baseName, ".cpp"], "")
+	let l:oldHppPath = join([l:basePath, "/", l:baseName, ".hpp"], "")
+	let l:newCppPath = join([l:basePath, "/", a:newName, ".cpp"], "")
+	let l:newHppPath = join([l:basePath, "/", a:newName, ".hpp"], "")
 
-    let l:oldCppExists = filereadable(l:oldCppPath)
+	let l:oldCppExists = filereadable(l:oldCppPath)
 
 	if !filereadable(l:oldHppPath)
 		echo "aborted: file " . l:oldHppPath " does not exist"
@@ -96,11 +96,11 @@ function! CPPCopy(path, newName, oldTypeName, newTypeName)
 	call system(join(["sed -i '' '", l:sed0, "' ", l:newHppPath], ""))
 	call system(join(["sed -i '' '", l:sed1, "' ", l:newHppPath], ""))
 
-    if l:oldCppExists
-	    call system(join(["cp ", l:oldCppPath, " ", l:newCppPath], ""))
-	    call system(join(["sed -i '' '", l:sed0, "' ", l:newCppPath], ""))
-	    call system(join(["sed -i '' '", l:sed1, "' ", l:newCppPath], ""))
-    endif
+	if l:oldCppExists
+		call system(join(["cp ", l:oldCppPath, " ", l:newCppPath], ""))
+		call system(join(["sed -i '' '", l:sed0, "' ", l:newCppPath], ""))
+		call system(join(["sed -i '' '", l:sed1, "' ", l:newCppPath], ""))
+	endif
 
 	let choice = confirm("open " . l:newHppPath . " in:", "&here\n&vsplit\n&hsplit\n&none", 4)
 	if choice == 1
@@ -121,53 +121,6 @@ function! CPPCopyComplete(argLead, cmdLine, cursorPos)
 endfunction
 
 command! -nargs=* -complete=customlist,CPPCopyComplete CPPCopy call CPPCopy(<f-args>)
-
-function! CPPImpl() range
-	" convert lines into marks so things aren't messed up when deleted
-	execute ':' . a:firstline
-	normal 0
-	normal mm
-	execute ':' . a:lastline
-	normal $
-	normal mn
-
-	let myRange = "'m,'n"
-
-	" ask user for class name
-	let className = input("class name: ")
-
-	" remove indentation
-	'm,'nleft
-
-	" remove override
-	execute 'lockmarks ' . myRange . 's/\(\.*\)\s+(override)\s*\(.*\)/\1 \2/ge'
-
-	" remove explicit, virtual
-	execute 'lockmarks ' . myRange . 's/(virtual)\s*\(.*\);/\1 \2;/ge'
-
-	" replace all lines with definitions
-	" \1: return type
-	" \2: return type extras (*/&/etc.)
-	" \3: function name
-	" \4: rest of signature excluding ";"
-	"                     \1        \2                \3     \4
-	execute myRange . 's/\(.*\)\s\+\([^a-zA-Z0-9_]*\)\(.*\)(\(.*\);$/\1 \' . className . '::\3(\4 {\r\r}/g'
-
-	" remove lines with comments
-    execute 'lockmarks ' . myRange . 'g/\/\//d'
-endfunction
-
-command! -range PassRange CPPImpl call CPPImpl(<f-args>)
-
-" cpi -> CPPImpl
-vnoremap <silent> <Leader>cpi :<C-U>CPPImpl<CR>
-
-" zig config
-au FileType zig nmap <Leader>dt <cmd>lua vim.lsp.buf.definition()<CR>
-au FileType zig nmap <Leader>h  <cmd>lua vim.lsp.buf.hover()<CR>
-au FileType zig nmap <Leader>p  <cmd>lua vim.lsp.buf.signature_help()<CR>
-au FileType zig nmap <Leader>gd  <cmd>lua vim.lsp.buf.document_symbol()<CR>
-au FileType zig setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " enable history for fzf
 let g:fzf_history_dir = '~/.local/share/fzf-history'
@@ -331,12 +284,12 @@ nnoremap <silent> <leader>s :SymbolsOutline<CR>
 
 " Function to set tab width to n spaces
 function! SetTab(n)
-  let &tabstop=a:n
-  let &shiftwidth=a:n
-  let &softtabstop=a:n
-  set expandtab
-  set autoindent
-  set smartindent
+	let &tabstop=a:n
+	let &shiftwidth=a:n
+	let &softtabstop=a:n
+	set expandtab
+	set autoindent
+	set smartindent
 endfunction
 
 command! -nargs=1 SetTab call SetTab(<f-args>)
@@ -347,9 +300,9 @@ set smartindent
 
 " Function to trim extra whitespace in whole file
 function! Trim()
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
+	let l:save = winsaveview()
+	keeppatterns %s/\s\+$//e
+	call winrestview(l:save)
 endfun
 
 command! -nargs=0 Trim call Trim()
@@ -364,14 +317,14 @@ set t_Co=256
 
 " Binary files -> xxd
 augroup Binary
-  au!
-  au BufReadPre  *.bin let &bin=1
-  au BufReadPost *.bin if &bin | %!xxd
-  au BufReadPost *.bin set ft=xxd | endif
-  au BufWritePre *.bin if &bin | %!xxd -r
-  au BufWritePre *.bin endif
-  au BufWritePost *.bin if &bin | %!xxd
-  au BufWritePost *.bin set nomod | endif
+	au!
+	au BufReadPre  *.bin let &bin=1
+	au BufReadPost *.bin if &bin | %!xxd
+	au BufReadPost *.bin set ft=xxd | endif
+	au BufWritePre *.bin if &bin | %!xxd -r
+	au BufWritePre *.bin endif
+	au BufWritePost *.bin if &bin | %!xxd
+	au BufWritePost *.bin set nomod | endif
 augroup END
 
 " colorcolumn 80 when opening C/C++
@@ -398,43 +351,43 @@ autocmd BufRead,BufNewFile *.nims SetTab 4
 
 " ASM == JDH8
 augroup jdh8_ft
-  au!
-  autocmd BufNewFile,BufRead *.asm    set filetype=jdh8
+	au!
+	autocmd BufNewFile,BufRead *.asm    set filetype=jdh8
 augroup END
 
 " SQL++ == SQL
 augroup sqlpp_ft
-  au!
-  autocmd BufNewFile,BufRead *.sqlp   set syntax=sql
+	au!
+	autocmd BufNewFile,BufRead *.sqlp   set syntax=sql
 augroup END
 
 " .S == gas
 augroup gas_ft
-  au!
-  autocmd BufNewFile,BufRead *.S      set syntax=gas
+	au!
+	autocmd BufNewFile,BufRead *.S      set syntax=gas
 augroup END
 
 " .vs = glsl
 augroup vs_ft
-  au!
-  autocmd BufNewFile,BufRead *.vs     set syntax=glsl
+	au!
+	autocmd BufNewFile,BufRead *.vs     set syntax=glsl
 augroup END
 
 " .fs = glsl
 augroup fs_ft
-  au!
-  autocmd BufNewFile,BufRead *.fs     set syntax=glsl
+	au!
+	autocmd BufNewFile,BufRead *.fs     set syntax=glsl
 augroup END
 
 " .sc = glsl
 augroup sc_ft
-  au!
-  autocmd BufNewFile,BufRead *.sc     set filetype=glsl
+	au!
+	autocmd BufNewFile,BufRead *.sc     set filetype=glsl
 augroup END
 
 " JFlex syntax highlighting
 augroup jfft
-  au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
+	au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
 augroup END
 au Syntax jflex    so ~/.vim/syntax/jflex.vim
 
@@ -456,10 +409,10 @@ au FileType text set colorcolumn=80
 
 " show syntax group of symbol under cursor
 function! SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 " nvim-dap bindings
