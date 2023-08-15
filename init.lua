@@ -37,7 +37,7 @@ require('spectre').setup({
   }
 })
 
--- space as leader
+-- comma as leader
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 

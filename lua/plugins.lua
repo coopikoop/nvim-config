@@ -46,4 +46,5 @@ return require('packer').startup(function()
     use 'sindrets/diffview.nvim'
     use 'honza/vim-snippets'
     use 'romainl/vim-cool'
+    use 'preservim/tagbar'
 end)

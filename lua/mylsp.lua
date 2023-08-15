@@ -63,15 +63,6 @@ require('lspconfig').clangd.setup{
   capabilities = capabilities
 }
 
-require('lspconfig').zls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {
-    "zls",
-    "--enable-debug-log",
-  },
-}
-
 require('lspconfig').pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities
