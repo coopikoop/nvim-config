@@ -78,7 +78,9 @@ require('lualine').setup{
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,
+    disable = {"tex", "latex"},
   },
+  auto_install = true,
 }
 
 require('nvim-autopairs').setup {}

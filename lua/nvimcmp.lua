@@ -25,10 +25,7 @@ cmp.setup({
     },
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        -- { name = 'vsnip' }, -- For vsnip users.
-        -- { name = 'luasnip' }, -- For luasnip users.
         { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
       }, {
         { name = 'buffer' },
       })
@@ -42,6 +39,12 @@ cmp.setup.filetype('gitcommit', {
         { name = 'buffer' },
       })
   })
+
+cmp.setup.filetype('tex', {
+    sources = cmp.config.sources({
+	{ name = 'ultisnips'},
+    })
+})
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {

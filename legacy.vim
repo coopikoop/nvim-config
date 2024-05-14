@@ -1,4 +1,22 @@
-let g:UltiSnipsExpandTrigger = '<f5>'
+" VimTeX
+let g:vimtex_view_method = 'skim'
+let g:vimtex_quickfix_mode=0
+
+"set conceallevel=1
+"let g:tex_conceal='abdmg'
+"hi Conceal ctermbg=none
+
+
+
+let g:python3_host_prog = "/opt/homebrew/bin/python3"
+
+
+" UltiSnips
+let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 
 " project specific, but oh well. better than exrc!
 au FileType c nnoremap <silent> ;m :Focus make build -j 10<CR>:Dispatch<CR>
@@ -22,9 +40,6 @@ au FileType cpp nnoremap <silent> ;dc :VimuxRunCommand "make clean -j 10 && make
 au FileType cpp nnoremap <silent> ;tm :VimuxRunCommand "make build -j 10"<CR>
 au FileType cpp nnoremap <silent> ;tr :VimuxRunCommand "make run -j 10"<CR>
 au FileType cpp nnoremap <silent> ;tc :VimuxRunCommand "make clean && make run -j 10"<CR>
-
-au FileType zig nnoremap <silent> ;m :make<CR>
-au FileType zig nnoremap <silent> ;r :make run<CR>
 
 " C++ helpers
 
@@ -212,7 +227,7 @@ let g:python3_host_prog="/usr/local/bin/python3"
 set runtimepath+=~/.config/nvim/syntax
 
 " fzf in runtimepath
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 " Use ripgrep as grep
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
@@ -433,3 +448,4 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+

@@ -31,13 +31,11 @@ return require('packer').startup(function()
     use 'zefei/vim-colortuner'
     use 'nvim-treesitter/nvim-treesitter'
     use 'sbdchd/neoformat'
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    use 'nvim-lualine/lualine.nvim'
+    use 'kyazdani42/nvim-web-devicons'
     use 'ntpeters/vim-better-whitespace'
     use 'windwp/nvim-autopairs'
-	use 'preservim/vimux'
+    use 'preservim/vimux'
     use 'easymotion/vim-easymotion'
     use 'mfussenegger/nvim-dap'
     use 'simrat39/symbols-outline.nvim'
@@ -47,4 +45,6 @@ return require('packer').startup(function()
     use 'honza/vim-snippets'
     use 'romainl/vim-cool'
     use 'preservim/tagbar'
+    use 'lervag/vimtex'
+    use 'KeitaNakamura/tex-conceal.vim'
 end)
