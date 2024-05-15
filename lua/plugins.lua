@@ -18,14 +18,6 @@ return {
    'alaviss/nim.nvim',
    'neovim/nvim-lspconfig',
    'ray-x/lsp_signature.nvim',
-   'hrsh7th/cmp-nvim-lsp',
-   'hrsh7th/cmp-buffer',
-   'hrsh7th/cmp-path',
-   'hrsh7th/cmp-cmdline',
-   'hrsh7th/nvim-cmp',
-   'hrsh7th/vim-vsnip',
-   'SirVer/ultisnips',
-   'quangnguyen30192/cmp-nvim-ultisnips',
    'zefei/vim-colortuner',
    'nvim-treesitter/nvim-treesitter',
    'sbdchd/neoformat',
@@ -44,5 +36,12 @@ return {
    'romainl/vim-cool',
    'preservim/tagbar',
    'lervag/vimtex',
-   'KeitaNakamura/tex-conceal.vim'
+   'KeitaNakamura/tex-conceal.vim',
+   'ms-jpq/coq_nvim',
+   'ms-jpq/coq.artifacts',
+   'ms-jpq/coq.thirdparty',
+   'williamboman/mason.nvim',
+   'williamboman/mason-lspconfig.nvim',
+   'jay-babu/mason-null-ls.nvim',
+   'nvimtools/none-ls.nvim'
 }

@@ -15,7 +15,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+-- coq is set up in mylsp.lua
+vim.g.coq_settings = {
+  auto_start = "shut-up",
+  keymap = {
+    jump_to_mark = "", -- Prevent clash with split jumping
+    eval_snips = "<leader>j",
+  },
+}
+require('lazy').setup("plugins")
+require('mylsp')
 
 -- spectre
 require('spectre').setup({
@@ -59,8 +68,6 @@ vim.cmd([[
 so ~/.config/nvim/legacy.vim
 ]])
 
-require('mylsp')
-require('nvimcmp')
 
 require('symbols-outline').setup()
 

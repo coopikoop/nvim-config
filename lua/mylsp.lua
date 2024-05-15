@@ -30,45 +30,50 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', ',f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-require("lspconfig").nimls.setup{
-    cmd                 = {"nimlsp"},
-    filetypes           = {"nim"},
-    single_file_support = true
-}
+local coq = require("coq")
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = { "documentation", "detail", "additionalTextEdits" },
-}
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = lsp_servers,
+  automatic_installation = true,
+})
 
-require('lspconfig').clangd.setup{
-  on_attach = on_attach,
-  cmd = {
-    "/opt/homebrew/opt/llvm/bin/clangd",
-    "--background-index",
-    "--pch-storage=memory",
-    "--all-scopes-completion",
-    "--pretty",
-    "--header-insertion=never",
-    "-j=4",
-    "--inlay-hints",
-    "--header-insertion-decorators",
-    "--function-arg-placeholders",
-    "--completion-style=detailed"
+require("mason-null-ls").setup({
+  ensure_installed = {
+    "stylua",
+    "jq",
+    "isort",
+    "black",
+    -- "mypy",
+    "prettierd",
   },
-  filetypes = {"c", "cpp", "objc", "objcpp"},
-  root_dir = require('lspconfig').util.root_pattern("src"),
-  init_option = { fallbackFlags = {  "-std=c++2a"  } },
-  capabilities = capabilities
+  automatic_installation = true,
+  automatic_setup = true,
+  handlers = {},
+})
+require("null-ls").setup()
+
+local lsp_servers = {
+  clangd = {},
+  pyright = {},
+  texlab = {},
+  ruff_lsp = {},
+  eslint = {},
+  jsonls = {},
+  tailwindcss = {},
+  tsserver = {},
+  terraformls = {},
+  tflint = {},
+  lua_ls = {},
+  yamlls = {},
 }
 
-require('lspconfig').pyright.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+for lsp, settings in pairs(lsp_servers) do
+  require("lspconfig")[lsp].setup(coq.lsp_ensure_capabilities({
+    on_attach = function(_, buffer)
+      server_maps({ buffer = buffer })
+    end,
+    settings = settings,
+  }))
+end
 
-require('lspconfig').texlab.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
