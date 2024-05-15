@@ -7,10 +7,6 @@ let g:vimtex_quickfix_mode=0
 "hi Conceal ctermbg=none
 
 
-
-let g:python3_host_prog = "/opt/homebrew/bin/python3"
-
-
 " UltiSnips
 let g:UltiSnipsSnippetDirectories=["snips", "UltiSnips"]
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -221,7 +217,7 @@ set nocompatible
 let c_no_curly_error=1
 
 " Python
-let g:python3_host_prog="/usr/local/bin/python3"
+let g:python3_host_prog="/sbin/python3"
 
 " Get syntax files from config folder
 set runtimepath+=~/.config/nvim/syntax

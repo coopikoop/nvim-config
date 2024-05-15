@@ -1,50 +1,48 @@
-return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
-    use 'morhetz/gruvbox'
-    use 'rust-lang/rust.vim'
-    use 'luochen1990/rainbow'
-    use 'neovimhaskell/haskell-vim'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-dispatch'
-    use 'tpope/vim-fugitive'
-    use 'tpope/vim-abolish'
-    use 'Shirk/vim-gas'
-    use 'junegunn/fzf'
-    use 'junegunn/fzf.vim'
-    use 'nvim-lua/plenary.nvim'
-    -- use 'gfanto/fzf-lsp.nvim'
-    use 'BurntSushi/ripgrep'
-    use 'nvim-pack/nvim-spectre'
-    use 'DingDean/wgsl.vim'
-    use 'alaviss/nim.nvim'
-    use 'neovim/nvim-lspconfig'
-    use { 'ray-x/lsp_signature.nvim', commit = "1d96fac72eb6d74abd5b4d7883a01f58aeb4f87e" }
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/vim-vsnip'
-    use 'SirVer/ultisnips'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
-    use 'zefei/vim-colortuner'
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'sbdchd/neoformat'
-    use 'nvim-lualine/lualine.nvim'
-    use 'kyazdani42/nvim-web-devicons'
-    use 'ntpeters/vim-better-whitespace'
-    use 'windwp/nvim-autopairs'
-    use 'preservim/vimux'
-    use 'easymotion/vim-easymotion'
-    use 'mfussenegger/nvim-dap'
-    use 'simrat39/symbols-outline.nvim'
-    use 'RRethy/vim-illuminate'
-    use 'tommcdo/vim-lion'
-    use 'sindrets/diffview.nvim'
-    use 'honza/vim-snippets'
-    use 'romainl/vim-cool'
-    use 'preservim/tagbar'
-    use 'lervag/vimtex'
-    use 'KeitaNakamura/tex-conceal.vim'
-end)
+return {
+   'morhetz/gruvbox',
+   'rust-lang/rust.vim',
+   'luochen1990/rainbow',
+   'neovimhaskell/haskell-vim',
+   'tpope/vim-surround',
+   'tpope/vim-commentary',
+   'tpope/vim-dispatch',
+   'tpope/vim-fugitive',
+   'tpope/vim-abolish',
+   'Shirk/vim-gas',
+   'junegunn/fzf',
+   'junegunn/fzf.vim',
+   'nvim-lua/plenary.nvim',
+   'BurntSushi/ripgrep',
+   'nvim-pack/nvim-spectre',
+   'DingDean/wgsl.vim',
+   'alaviss/nim.nvim',
+   'neovim/nvim-lspconfig',
+   'ray-x/lsp_signature.nvim',
+   'hrsh7th/cmp-nvim-lsp',
+   'hrsh7th/cmp-buffer',
+   'hrsh7th/cmp-path',
+   'hrsh7th/cmp-cmdline',
+   'hrsh7th/nvim-cmp',
+   'hrsh7th/vim-vsnip',
+   'SirVer/ultisnips',
+   'quangnguyen30192/cmp-nvim-ultisnips',
+   'zefei/vim-colortuner',
+   'nvim-treesitter/nvim-treesitter',
+   'sbdchd/neoformat',
+   'nvim-lualine/lualine.nvim',
+   'kyazdani42/nvim-web-devicons',
+   'ntpeters/vim-better-whitespace',
+   'windwp/nvim-autopairs',
+   'preservim/vimux',
+   'easymotion/vim-easymotion',
+   'mfussenegger/nvim-dap',
+   'simrat39/symbols-outline.nvim',
+   'RRethy/vim-illuminate',
+   'tommcdo/vim-lion',
+   'sindrets/diffview.nvim',
+   'honza/vim-snippets',
+   'romainl/vim-cool',
+   'preservim/tagbar',
+   'lervag/vimtex',
+   'KeitaNakamura/tex-conceal.vim'
+}
