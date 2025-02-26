@@ -32,6 +32,21 @@ end
 
 local coq = require("coq")
 
+local lsp_servers = {
+  clangd = {},
+  pyright = {},
+  texlab = {},
+  ruff = {},
+  eslint = {},
+  jsonls = {},
+  tailwindcss = {},
+  ts_ls = {},
+  terraformls = {},
+  tflint = {},
+  lua_ls = {},
+  yamlls = {},
+}
+
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = lsp_servers,
@@ -52,28 +67,4 @@ require("mason-null-ls").setup({
   handlers = {},
 })
 require("null-ls").setup()
-
-local lsp_servers = {
-  clangd = {},
-  pyright = {},
-  texlab = {},
-  ruff_lsp = {},
-  eslint = {},
-  jsonls = {},
-  tailwindcss = {},
-  tsserver = {},
-  terraformls = {},
-  tflint = {},
-  lua_ls = {},
-  yamlls = {},
-}
-
-for lsp, settings in pairs(lsp_servers) do
-  require("lspconfig")[lsp].setup(coq.lsp_ensure_capabilities({
-    on_attach = function(_, buffer)
-      server_maps({ buffer = buffer })
-    end,
-    settings = settings,
-  }))
-end
 
