@@ -43,5 +43,6 @@ return {
    'williamboman/mason.nvim',
    'williamboman/mason-lspconfig.nvim',
    'jay-babu/mason-null-ls.nvim',
-   'nvimtools/none-ls.nvim'
+   'nvimtools/none-ls.nvim',
+   'lambdalisue/vim-suda'
 }
